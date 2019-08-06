@@ -1,6 +1,6 @@
 {
   "pipeline": {
-    "name": "edges"
+    "name": "frames"
   },
   "input": {
     "pfs": {
@@ -9,7 +9,7 @@
     }
   },
   "transform": {
-    "cmd": [ "python3", "/edges.py" ],
+    "cmd": [ "python3", "/frames.py" ],
     "image": "pachyderm/opencv"
   }
 }

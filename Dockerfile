@@ -28,4 +28,4 @@ RUN cd \
 RUN python3 --version && pip3 --version && sudo pip3 install matplotlib
 
 # Add our own code.
-ADD edges.py /edges.py
+ADD frames.py /frames.py
