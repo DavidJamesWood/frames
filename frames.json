@@ -5,7 +5,7 @@
   "input": {
     "pfs": {
       "glob": "/*",
-      "repo": "images"
+      "repo": "videos"
     }
   },
   "transform": {

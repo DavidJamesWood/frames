@@ -1,50 +1,30 @@
-# Program To Read video
-# and Extract Frames
+# Program To Read video and Extract Frames
 import cv2
 import re
 import os
 
 # Function to extract frames
-def FrameCapture(path, outDir):
+def FrameCapture(path):
 
-    # check if output dir exists
-    if not os.path.exists(outDir):
-        # create directory with the video name
-        try:
-            os.mkdir(outDir)
-        except OSError:
-            print ("Creation of the directory %s failed" % outDir)
-        else:
-            print ("Successfully created the directory %s " % outDir)
+    # Path to video file
+    vidObj = cv2.VideoCapture(path)
+    # Used as counter variable
+    count = 0
+    # checks whether frames were extracted
+    success = 1
 
-        # Path to video file
-        vidObj = cv2.VideoCapture(path)
-
-        # Used as counter variable
-        count = 0
-
-        # checks whether frames were extracted
-        success = 1
-
-        while success:
-
-            # vidObj object calls read
-            # function extract frames
-            success, image = vidObj.read()
-
-            # Saves the frames with frame-count
-            cv2.imwrite(outDir+"/frame%d.jpg" % count, image)
-
-            count += 1
-    else:
-        print("Video is already processed.")
+    while success:
+        # vidObj object calls read
+        # function extract frames
+        success, image = vidObj.read()
+        # Saves the frames with frame-count
+        cv2.imsave(os.path.join("/pfs/out", os.path.splitext(tail)[0]+'%d.jpeg' % count), image)
+        count += 1
 
 # Driver Code
 if __name__ == '__main__':
-
-    path = '/Users/davidwood/Ocean_Waves_slow_motion_videvo.mov'
-
-    outDir = re.search(r'^.*(\\|\/)(.*)\..*$', path).group(2)
-
-    # Calling the function
-    FrameCapture(path, outDir)
+    # walk /pfs/images and call make_edges on every file found
+    for dirpath, dirs, files in os.walk("/pfs/videos"):
+        for file in files:
+            # Calling the function
+            FrameCapture(os.path.join(dirpath, file))
