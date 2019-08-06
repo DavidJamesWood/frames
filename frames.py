@@ -17,6 +17,8 @@ def FrameCapture(path):
         # vidObj object calls read
         # function extract frames
         success, image = vidObj.read()
+        
+        tail = os.path.split(image)[1]
         # Saves the frames with frame-count
         cv2.imsave(os.path.join("/pfs/out", os.path.splitext(tail)[0]+'%d.jpeg' % count), image)
         count += 1
