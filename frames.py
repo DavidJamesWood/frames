@@ -17,16 +17,16 @@ def FrameCapture(path):
         # vidObj object calls read
         # function extract frames
         success, image = vidObj.read()
-        
-        tail = os.path.split(image)[1]
+        # filename
+        tail = os.path.split(path)[1]
         # Saves the frames with frame-count
-        cv2.imsave(os.path.join("/pfs/out", os.path.splitext(tail)[0]+'%d.jpeg' % count), image)
+        cv2.imwrite(os.path.join('/pfs/out', os.path.splitext(tail)[0]+'%d.jpeg' % count), image)
         count += 1
 
 # Driver Code
 if __name__ == '__main__':
     # walk /pfs/images and call make_edges on every file found
-    for dirpath, dirs, files in os.walk("/pfs/videos"):
+    for dirpath, dirs, files in os.walk('/pfs/videos'):
         for file in files:
             # Calling the function
             FrameCapture(os.path.join(dirpath, file))
