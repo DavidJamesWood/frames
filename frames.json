@@ -9,7 +9,7 @@
     }
   },
   "transform": {
-    "cmd": [ "python3", "https://raw.githubusercontent.com/DavidJamesWood/frames/master/frames.py" ],
-    "image": "pachyderm/opencv"
+    "cmd": [ "python3", "/frames.py" ],
+    "image": "frames"
   }
 }
