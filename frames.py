@@ -1,7 +1,7 @@
 # Program To Read video and Extract Frames
 import re
 import os
-import imageio_ffmpeg as imageio
+import imageio
 
 # Function to extract frames
 def FrameCapture(path):
@@ -11,7 +11,7 @@ def FrameCapture(path):
     # checks whether frames were extracted
     success = 1
     # Process video
-    vid = imageio.get_reader(path, 'ffmpeg')
+    vid = imageio.get_reader(path)
     # file name
     tail = os.path.split(path)[1]
     # iterate through frames
