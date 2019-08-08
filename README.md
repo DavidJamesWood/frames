@@ -2,7 +2,7 @@
 This project takes video files (most common types) and splits them into frames using pachyderm.
 Steps to run:
 1. create a pachyderm repo with: pachctl create repo videos
-2. add videos files to this repo with: pachctl put file videos@master:<name-of-file> -f <path-to-file>
+2. add videos files to this repo with: pachctl put file videos@master:name-of-file -f path-to-file
 3. create the pipeline with: pachctl create pipeline -f https://raw.githubusercontent.com/DavidJamesWood/frames/master/frames.json
   
 Blog Header: Data Scientists/Engineers, Here's how to increase your value with open source pachyderm!
