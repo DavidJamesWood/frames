@@ -2,6 +2,7 @@
 import re
 import os
 import imageio
+import imageio_ffmpeg
 
 # Function to extract frames
 def FrameCapture(path):

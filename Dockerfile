@@ -16,7 +16,8 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
 RUN python3 --version && \
   pip3 --version && \
   sudo pip3 install matplotlib && \
-  sudo pip3 install imageio
+  sudo pip3 install imageio && \
+  sudo pip3 install imageio-ffmpeg
 
 # Add our own code.
 ADD frames.py /frames.py
