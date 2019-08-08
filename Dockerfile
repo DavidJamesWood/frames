@@ -17,7 +17,8 @@ RUN python3 --version && \
   pip3 --version && \
   sudo pip3 install matplotlib && \
   sudo pip3 install imageio && \
-  sudo pip3 install imageio-ffmpeg
+  sudo pip3 install imageio-ffmpeg && \
+  sudo pip3 install ffmpeg
 
 # Add our own code.
 ADD frames.py /frames.py
